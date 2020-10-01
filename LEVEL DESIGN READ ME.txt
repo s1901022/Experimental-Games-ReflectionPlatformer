@@ -1,6 +1,0 @@
-Levels always need the line of reflection object even if not used.
-If not used set it's Xposition to 99 so it does not interact with player object.
-
-If a level does not use line of reflection make sure the line of reflection's rotation (z) is 0.
-
-An example of a level not using line of reflection is included

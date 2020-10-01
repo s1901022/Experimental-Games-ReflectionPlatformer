@@ -12,7 +12,7 @@ public class scrPlayerMovement : MonoBehaviour
     private float moveInput;
 
     public bool facingRight = true;
-    private bool grounded = false;
+    public bool grounded = false;
 
     public Transform groundCheck;
     public float checkRadius;
