@@ -33,6 +33,7 @@ public class scrSwitchGravity : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && canFlip)
         {
+            rb.velocity = new Vector2(0.0f, 0.0f);
             canFlip = false;
             if (checkFlip == 1f)
             {
@@ -51,8 +52,16 @@ public class scrSwitchGravity : MonoBehaviour
             {
                 float distanceBetweenReflection = transform.position.y - reflectNormal.position.y;
                 float reflectiveScale = height / 2;
-                
-                transform.position = new Vector3(transform.position.x, (reflectNormal.position.y + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+
+                if (transform.position.y > reflectNormal.position.y)
+                {
+                    transform.position = new Vector3(transform.position.x, (reflectNormal.position.y - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                }
+                else if (transform.position.y < reflectNormal.position.y)
+                {
+                    transform.position = new Vector3(transform.position.x, (reflectNormal.position.y + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                }
+
                 Debug.Log("First check");
                 Debug.Log(reflectNormal.position.y);
                 Debug.Log("dist " + distanceBetweenReflection);
@@ -60,7 +69,14 @@ public class scrSwitchGravity : MonoBehaviour
                 checkFlip *= -1;
                 rb.gravityScale *= -1;
                 rotation();
-            }                     
+            }
+            else if (player.grounded == false)
+            {
+                Debug.Log("Nope goodbye");
+                checkFlip *= -1;
+                rb.gravityScale *= -1;
+                rotation();
+            }
         }        
     }
 
