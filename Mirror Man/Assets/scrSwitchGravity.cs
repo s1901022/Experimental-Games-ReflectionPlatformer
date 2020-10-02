@@ -10,36 +10,57 @@ public class scrSwitchGravity : MonoBehaviour
     private bool top;
     public GameObject mirror;
     public bool canFlip;
+    public float height;
+    public Transform reflectNormal;
+    public float checkFlip;
+    RaycastHit2D hitReflective;   
 
     // Start is called before the first frame update
     void Start()
     {
+        checkFlip = 1f;
         player = GetComponent<scrPlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
+        reflectNormal = null;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (player.grounded)
         {
             canFlip = true;
         }
         if (Input.GetKeyDown(KeyCode.Space) && canFlip)
         {
-            if ((transform.position.y > 0 && Mathf.Sign(rb.gravityScale) < 0) || (transform.position.y < 0 && Mathf.Sign(rb.gravityScale) > 0))
-            {
-                transform.position = Vector3.Reflect(transform.position, mirror.transform.up);
-            }
-            else if ((transform.position.y >= 0 && Mathf.Sign(rb.gravityScale) >= 0) || (transform.position.y < 0 && Mathf.Sign(rb.gravityScale) < 0))
-            {
-                transform.position = Vector3.Reflect(transform.position, mirror.transform.up);
-                rb.gravityScale *= -1;
-                rotation();
-            }
             canFlip = false;
-        }
-        
+            if (checkFlip == 1f)
+            {
+                hitReflective = Physics2D.Raycast(transform.position - new Vector3(0f, transform.localScale.y, 0f), Vector2.down);
+            }
+            else if (checkFlip == -1f)
+            {
+                hitReflective = Physics2D.Raycast(transform.position + new Vector3(0f, transform.localScale.y, 0f), Vector2.down);
+            }
+            reflectNormal = hitReflective.transform;
+            Vector2 size = hitReflective.collider.gameObject.GetComponent<BoxCollider2D>().bounds.size;
+            height = size.y;
+            Debug.Log("h: " + height);
+
+            if (hitReflective.collider != null && hitReflective.collider.tag == "Reflective")
+            {
+                float distanceBetweenReflection = transform.position.y - reflectNormal.position.y;
+                float reflectiveScale = height / 2;
+                
+                transform.position = new Vector3(transform.position.x, (reflectNormal.position.y + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                Debug.Log("First check");
+                Debug.Log(reflectNormal.position.y);
+                Debug.Log("dist " + distanceBetweenReflection);
+            }                     
+            checkFlip *= -1;
+            rb.gravityScale *= -1;
+            rotation();
+        }        
     }
 
     void rotation()

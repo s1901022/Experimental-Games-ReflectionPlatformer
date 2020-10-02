@@ -14,7 +14,6 @@ public class scrMirrorReflect : MonoBehaviour
         RaycastHit2D[] hit = Physics2D.CircleCastAll(castPoint, 5.0f, Vector2.up, Mathf.Infinity);
 
         // If it hits something...
-        Debug.Log("Did Hit");
         foreach (RaycastHit2D objectHit in hit)
         {
             if (objectHit != null && objectHit.collider.tag == "reflect")
