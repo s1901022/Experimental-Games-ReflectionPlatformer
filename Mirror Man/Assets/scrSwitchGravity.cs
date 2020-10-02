@@ -56,10 +56,11 @@ public class scrSwitchGravity : MonoBehaviour
                 Debug.Log("First check");
                 Debug.Log(reflectNormal.position.y);
                 Debug.Log("dist " + distanceBetweenReflection);
+
+                checkFlip *= -1;
+                rb.gravityScale *= -1;
+                rotation();
             }                     
-            checkFlip *= -1;
-            rb.gravityScale *= -1;
-            rotation();
         }        
     }
 
