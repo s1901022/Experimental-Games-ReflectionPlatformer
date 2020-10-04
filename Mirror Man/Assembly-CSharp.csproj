@@ -55,9 +55,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scrMirrorReflect.cs" />
-     <Compile Include="Assets\scrPlayerMovement.cs" />
-     <Compile Include="Assets\scrSwitchGravity.cs" />
+     <Compile Include="Assets\Scripts\Player\scrPlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\scrSwitchGravity.cs" />
+     <Compile Include="Assets\Scripts\scrChangeScene.cs" />
+     <Compile Include="Assets\Scripts\scrLevelGate.cs" />
+     <Compile Include="Assets\Scripts\scrMirrorReflect.cs" />
+     <Compile Include="Assets\Scripts\scrObjectFlip.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Jacob/Documents/GitHub/Experimental-Games-ReflectionPlatformer/Mirror Man/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

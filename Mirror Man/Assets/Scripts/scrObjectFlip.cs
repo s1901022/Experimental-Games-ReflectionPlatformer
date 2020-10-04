@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scrSwitchGravity : MonoBehaviour
+public class scrObjectFlip : MonoBehaviour
 {
+    public bool grounded = false;
+    public Transform groundCheck;
+    public float checkRadius;
+    public LayerMask ground;
+
     private Rigidbody2D rb;
-    private scrPlayerMovement player;
     private bool top;
     public GameObject mirror;
     public bool canFlip;
@@ -15,30 +19,46 @@ public class scrSwitchGravity : MonoBehaviour
     public float checkFlip;
     RaycastHit2D hitReflective;
 
-    public GameObject playerReflection;
+    public GameObject prefabReflection;
+    public GameObject myReflection;
 
     // Start is called before the first frame update
     void Start()
     {
-        checkFlip = 1f;
-        player = GetComponent<scrPlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
         reflectNormal = null;
+        if (GameObject.Find("Player Reflection") == null)
+        {
+            myReflection = Instantiate(prefabReflection, transform.position, Quaternion.identity);
+        }
+        if (checkFlip < 0)
+        {
+            rb.gravityScale *= -1;
+            canFlip = false;
+        }
+        else
+        {
+            checkFlip = 1f;
+        }      
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (player.grounded)
+        if (grounded)
         {
             canFlip = true;
         }
         if (Input.GetKeyDown(KeyCode.Space) && canFlip)
         {
-            MirrorPlayer();  
+            MirrorObject();
         }
         UpdateReflection();
+    }
+
+    void FixedUpdate()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, ground);
     }
 
     void DetectTerrain()
@@ -54,7 +74,7 @@ public class scrSwitchGravity : MonoBehaviour
         reflectNormal = hitReflective.transform;
     }
 
-    void MirrorPlayer()
+    void MirrorObject()
     {
         rb.velocity = new Vector2(0.0f, 0.0f);
         canFlip = false;
@@ -78,7 +98,7 @@ public class scrSwitchGravity : MonoBehaviour
             rb.gravityScale *= -1;
             Rotation();
         }
-        else if (player.grounded == false)
+        else if (grounded == false)
         {
             Debug.Log("Nope goodbye");
             checkFlip *= -1;
@@ -92,22 +112,22 @@ public class scrSwitchGravity : MonoBehaviour
         DetectTerrain();
         if (hitReflective.collider != null && hitReflective.collider.tag == "Reflective")
         {
-            playerReflection.SetActive(true);
+            myReflection.SetActive(true);
             float distanceBetweenReflection = transform.position.y - reflectNormal.position.y;
-            float reflectiveScale = reflectNormal.localScale.y/2;
+            float reflectiveScale = reflectNormal.localScale.y / 2;
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                myReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + myReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
-                playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
-            }           
+                myReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + myReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+            }
         }
-        else if (player.grounded == false)
+        else if (grounded == false)
         {
-            playerReflection.SetActive(false);
+            myReflection.SetActive(false);
         }
     }
 
@@ -121,8 +141,6 @@ public class scrSwitchGravity : MonoBehaviour
         {
             transform.eulerAngles = Vector3.zero;
         }
-        player.facingRight = !player.facingRight;
-        player.jumpForce = player.jumpForce * -1;
         top = !top;
     }
 }
