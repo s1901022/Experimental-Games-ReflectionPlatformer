@@ -8,6 +8,7 @@ TagManager:
   - reflect
   - Reflective
   - objectRefelction
+  - Death
   layers:
   - Default
   - TransparentFX

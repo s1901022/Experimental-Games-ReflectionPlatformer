@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 841151958774584589}
   - component: {fileID: 841151958774584588}
   - component: {fileID: 841151958774584591}
+  - component: {fileID: 989588241996463642}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -196,10 +197,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mirror: {fileID: 0}
-  canFlip: 0
   height: 0
   reflectNormal: {fileID: 0}
+  initialFlipDirection: 1
   checkFlip: 0
   prefabReflection: {fileID: 2670347770504333310, guid: f0aa4a11e6234104f989c979de893b65,
     type: 3}
   playerReflection: {fileID: 0}
+--- !u!114 &989588241996463642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841151958774584585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40860e4a794a60244b705b7a75818cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

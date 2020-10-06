@@ -9,9 +9,10 @@ public class scrSwitchGravity : MonoBehaviour
     private scrPlayerMovement player;
     private bool top;
     public GameObject mirror;
-    public bool canFlip;
+    private bool canFlip;
     public float height;
     public Transform reflectNormal;
+    public float initialFlipDirection;
     public float checkFlip;
     RaycastHit2D hitReflective;
 
@@ -21,16 +22,13 @@ public class scrSwitchGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponent<scrPlayerMovement>();
+        rb = GetComponent<Rigidbody2D>();
         if (GameObject.Find("Player Reflection") == null)
         {
             playerReflection = Instantiate(prefabReflection, transform.position, Quaternion.identity);
         }
-
-
-        checkFlip = 1f;
-        player = GetComponent<scrPlayerMovement>();
-        rb = GetComponent<Rigidbody2D>();
-        reflectNormal = null;
+        Reset();
     }
 
     // Update is called once per frame
@@ -131,5 +129,22 @@ public class scrSwitchGravity : MonoBehaviour
         player.facingRight = !player.facingRight;
         player.jumpForce = player.jumpForce * -1;
         top = !top;
+    }
+
+    public void Reset()
+    {
+        checkFlip = initialFlipDirection;
+        reflectNormal = null;
+        if (initialFlipDirection < 0f && rb.gravityScale > 0)
+        {
+            rb.gravityScale *= -1;
+            return;
+        }
+        if (initialFlipDirection > 0f && rb.gravityScale < 0)
+        {
+            rb.gravityScale *= -1;
+            return;
+        }
+       
     }
 }
