@@ -16,6 +16,7 @@ public class scrObjectFlip : MonoBehaviour
     public bool canFlip;
     public float height;
     public Transform reflectNormal;
+    public float initialFlipDirection;
     public float checkFlip;
     RaycastHit2D hitReflective;
 
@@ -26,20 +27,11 @@ public class scrObjectFlip : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        reflectNormal = null;
         if (GameObject.Find("Player Reflection") == null)
         {
             myReflection = Instantiate(prefabReflection, transform.position, Quaternion.identity);
         }
-        if (checkFlip < 0)
-        {
-            rb.gravityScale *= -1;
-            canFlip = false;
-        }
-        else
-        {
-            checkFlip = 1f;
-        }      
+        Reset();
     }
 
     // Update is called once per frame
@@ -131,7 +123,7 @@ public class scrObjectFlip : MonoBehaviour
         }
     }
 
-    void Rotation()
+    public void Rotation()
     {
         if (top == false)
         {
@@ -142,5 +134,22 @@ public class scrObjectFlip : MonoBehaviour
             transform.eulerAngles = Vector3.zero;
         }
         top = !top;
+    }
+
+    public void Reset()
+    {
+        checkFlip = initialFlipDirection;
+        reflectNormal = null;
+        if (initialFlipDirection < 0f && rb.gravityScale > 0)
+        {
+            rb.gravityScale *= -1;
+            return;
+        }
+        if (initialFlipDirection > 0f && rb.gravityScale < 0)
+        {
+            rb.gravityScale *= -1;
+            return;
+        }
+
     }
 }

@@ -13,6 +13,7 @@ public class scrSwitchGravity : MonoBehaviour
     public float height;
     public Transform reflectNormal;
     public float initialFlipDirection;
+    private float inititalJumpForce;
     public float checkFlip;
     RaycastHit2D hitReflective;
 
@@ -27,8 +28,9 @@ public class scrSwitchGravity : MonoBehaviour
         if (GameObject.Find("Player Reflection") == null)
         {
             playerReflection = Instantiate(prefabReflection, transform.position, Quaternion.identity);
-        }
+        }        
         Reset();
+        inititalJumpForce = player.jumpForce;
     }
 
     // Update is called once per frame
@@ -135,6 +137,7 @@ public class scrSwitchGravity : MonoBehaviour
     {
         checkFlip = initialFlipDirection;
         reflectNormal = null;
+        
         if (initialFlipDirection < 0f && rb.gravityScale > 0)
         {
             rb.gravityScale *= -1;
@@ -144,7 +147,14 @@ public class scrSwitchGravity : MonoBehaviour
         {
             rb.gravityScale *= -1;
             return;
+        }       
+    }
+
+    public void ResetRotation()
+    {
+        while (player.jumpForce != inititalJumpForce)
+        {
+            Rotation();
         }
-       
     }
 }

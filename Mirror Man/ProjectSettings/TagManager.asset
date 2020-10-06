@@ -9,6 +9,8 @@ TagManager:
   - Reflective
   - objectRefelction
   - Death
+  - Button
+  - Entity
   layers:
   - Default
   - TransparentFX

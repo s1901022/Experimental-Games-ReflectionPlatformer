@@ -58,8 +58,11 @@
      <Compile Include="Assets\Scripts\Player\scrPlayerInteractions.cs" />
      <Compile Include="Assets\Scripts\Player\scrPlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\scrSwitchGravity.cs" />
+     <Compile Include="Assets\Scripts\scrButton.cs" />
      <Compile Include="Assets\Scripts\scrCamera.cs" />
      <Compile Include="Assets\Scripts\scrChangeScene.cs" />
+     <Compile Include="Assets\Scripts\scrDoor.cs" />
+     <Compile Include="Assets\Scripts\scrEntity.cs" />
      <Compile Include="Assets\Scripts\scrLevelGate.cs" />
      <Compile Include="Assets\Scripts\scrMirrorReflect.cs" />
      <Compile Include="Assets\Scripts\scrObjectFlip.cs" />
