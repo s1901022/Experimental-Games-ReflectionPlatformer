@@ -30,14 +30,14 @@ public class scrSwitchGravity : MonoBehaviour
             playerReflection = Instantiate(prefabReflection, transform.position, Quaternion.identity);
         }        
         Reset();
-        inititalJumpForce = player.jumpForce;
+        inititalJumpForce = player.GetJumpForce();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (player.grounded)
+        if (player.GetGrounded() == true)
         {
             canFlip = true;
         }
@@ -75,17 +75,19 @@ public class scrSwitchGravity : MonoBehaviour
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y - transform.localScale.y) + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                //transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y - transform.localScale.y) + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
-                transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
+                //transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
             Rotation();
         }
-        else if (player.grounded == false)
+        else if (player.GetGrounded() == false)
         {
             Debug.Log("Nope goodbye");
             checkFlip *= -1;
@@ -105,17 +107,20 @@ public class scrSwitchGravity : MonoBehaviour
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                //playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                playerReflection.transform.position = new Vector3(transform.position.x, (distanceBetweenReflection-reflectNormal.position.y)*-1, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
-                playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                playerReflection.transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
+                //playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
             }           
         }
-        else if (player.grounded == false)
+        else if (player.GetGrounded() == false)
         {
             playerReflection.SetActive(false);
         }
+        playerReflection.transform.localScale = transform.localScale;
     }
 
     void Rotation()
@@ -123,14 +128,19 @@ public class scrSwitchGravity : MonoBehaviour
         if (top == false)
         {
             transform.eulerAngles = new Vector3(0, 0, 180f);
+            playerReflection.transform.eulerAngles = new Vector3(0, 0, 180f);
         }
         else
         {
             transform.eulerAngles = Vector3.zero;
+            playerReflection.transform.eulerAngles = Vector3.zero;
         }
-        player.facingRight = !player.facingRight;
-        player.jumpForce = player.jumpForce * -1;
+        player.SetDirection(!player.GetDirection());
+        player.FlipJumpGrav();
         top = !top;
+
+        player.AnimationControl();
+        
     }
 
     public void Reset()
@@ -152,7 +162,7 @@ public class scrSwitchGravity : MonoBehaviour
 
     public void ResetRotation()
     {
-        while (player.jumpForce != inititalJumpForce)
+        while (player.GetJumpForce() != inititalJumpForce)
         {
             Rotation();
         }

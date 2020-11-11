@@ -16,16 +16,20 @@ public class scrPlayerInteractions : MonoBehaviour
 
     void Start()
     {
+        //Get references to player components
         EntityScript = GetComponent<scrEntity>();
         playerBase = GetComponent<scrPlayerMovement>();
         playerMirror = GetComponent<scrSwitchGravity>();
         rb = GetComponent<Rigidbody2D>();
+
+        //initialise variables
         startingPos = transform.position;
         deathComplete = true;
     }
 
     void Update()
     {
+        //simple check for death
         if (dead == true && deathComplete == false)
         {
             dead = false;

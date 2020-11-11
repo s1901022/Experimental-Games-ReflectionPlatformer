@@ -4,27 +4,39 @@ using UnityEngine;
 
 public class scrPlayerMovement : MonoBehaviour
 {
-    public int jumplimit;
-    private int extraJumps;
-
-    public float moveSpeed;
-    public float jumpForce;
+    //Variables for Movement and direction
+    [SerializeField]
+    private int jumplimit;
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private float jumpForce;
     private float moveInput;
-
-    public bool facingRight = true;
-    public bool grounded = false;
-
+    private bool facingRight = true;
+    private bool grounded = false;
+    private int extraJumps;
+    //Variables for collision detection
     public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask ground;
+    [SerializeField]
+    private float checkRadius;
+    [SerializeField]
+    private LayerMask ground;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+
+    //Animation
+    [SerializeField]
+    private Sprite idle;
+    [SerializeField]
+    private Sprite run;
 
     // Start is called before the first frame update
     void Start()
     {
         extraJumps = jumplimit;
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -33,17 +45,27 @@ public class scrPlayerMovement : MonoBehaviour
 
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-
+        if (rb.velocity.x != 0 && spriteRenderer.sprite != run)
+        {
+            spriteRenderer.sprite = run;
+        }
+        else
+        {
+            spriteRenderer.sprite = idle;
+        }
         if ((facingRight == false && moveInput > 0) || (facingRight == true && moveInput < 0))
         {
-            animationControl();
+            AnimationControl();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
         if (grounded == true)
         {
@@ -60,11 +82,18 @@ public class scrPlayerMovement : MonoBehaviour
         }
     }
 
-    void animationControl()
+    public void AnimationControl()
     {
         facingRight = !facingRight;
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
     }
+
+    public float GetJumpForce() { return jumpForce; }
+    public bool GetGrounded() { return grounded; }
+    public bool GetDirection() { return facingRight; }
+
+    public void FlipJumpGrav() { jumpForce = jumpForce * -1; }
+    public void SetDirection(bool a_isRightFace) { facingRight = a_isRightFace; }
 }

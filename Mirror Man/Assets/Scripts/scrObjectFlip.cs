@@ -80,11 +80,13 @@ public class scrObjectFlip : MonoBehaviour
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y - transform.localScale.y) + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                //transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y - transform.localScale.y) + reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
-                transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                //transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
@@ -110,11 +112,13 @@ public class scrObjectFlip : MonoBehaviour
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                myReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + myReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                //myReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + myReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                myReflection.transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
-                myReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + myReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                //myReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + myReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
+                myReflection.transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
             }
         }
         else if (grounded == false)

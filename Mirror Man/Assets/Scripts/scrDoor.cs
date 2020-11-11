@@ -7,12 +7,13 @@ public class scrDoor : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D rb;
 
-    public GameObject trigger;
+    [SerializeField]
+    private GameObject trigger;
     private scrButton triggerScript;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Get Trigger
         triggerScript = trigger.transform.GetChild(0).gameObject.GetComponent<scrButton>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<BoxCollider2D>();
