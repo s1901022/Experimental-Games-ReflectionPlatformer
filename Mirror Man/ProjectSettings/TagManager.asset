@@ -11,6 +11,7 @@ TagManager:
   - Death
   - Button
   - Entity
+  - Ink
   layers:
   - Default
   - TransparentFX
