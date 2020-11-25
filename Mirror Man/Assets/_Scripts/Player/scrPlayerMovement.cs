@@ -13,7 +13,7 @@ public class scrPlayerMovement : MonoBehaviour
     private float jumpForce;
     private float moveInput;
     private bool facingRight = true;
-    private bool grounded = false;
+    public bool grounded = false;
     private int extraJumps;
     //Variables for collision detection
     public Transform groundCheck;
@@ -24,6 +24,8 @@ public class scrPlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private scrEntity m_entity;
+    private scrSwitchGravity m_mirror;
 
     //Animation
     [SerializeField]
@@ -37,12 +39,12 @@ public class scrPlayerMovement : MonoBehaviour
         extraJumps = jumplimit;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        m_entity = GetComponent<scrEntity>();
+        m_mirror = GetComponent<scrSwitchGravity>();
     }
 
     void FixedUpdate()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, ground);
-
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         if (rb.velocity.x != 0 && spriteRenderer.sprite != run)
@@ -62,26 +64,35 @@ public class scrPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!m_entity.GetDead())
         {
-            Application.Quit();
-        }
+            if (m_entity.GetGrounded())
+            {
+                extraJumps = jumplimit;
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                extraJumps--;
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && m_entity.GetGrounded())
+            {
+                rb.velocity = Vector2.up * jumpForce;
+            }
+        }       
+    }
 
-        if (grounded == true)
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Handle Death and respawning
+        if (col.gameObject.tag == "Death" && !m_entity.GetDead())
         {
-            extraJumps = jumplimit;
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && grounded == true)
-        {
-            rb.velocity = Vector2.up * jumpForce;
+            m_mirror.ResetRotation();
+            m_mirror.Reset();
         }
     }
 
+    //This will need to be removed and replaced with unitys animation system when ready
     public void AnimationControl()
     {
         facingRight = !facingRight;
@@ -90,10 +101,10 @@ public class scrPlayerMovement : MonoBehaviour
         transform.localScale = scaler;
     }
 
+    //Getters
     public float GetJumpForce() { return jumpForce; }
-    public bool GetGrounded() { return grounded; }
     public bool GetDirection() { return facingRight; }
-
+    //Setters
     public void FlipJumpGrav() { jumpForce = jumpForce * -1; }
     public void SetDirection(bool a_isRightFace) { facingRight = a_isRightFace; }
 }

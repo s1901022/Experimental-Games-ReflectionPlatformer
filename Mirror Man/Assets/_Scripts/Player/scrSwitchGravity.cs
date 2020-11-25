@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class scrSwitchGravity : MonoBehaviour
 {
+    private scrEntity m_entity;
     private Rigidbody2D rb;
     private scrPlayerMovement player;
     private bool top;
@@ -15,7 +16,7 @@ public class scrSwitchGravity : MonoBehaviour
     public float initialFlipDirection;
     private float inititalJumpForce;
     public float checkFlip;
-    public RaycastHit2D hitReflective;
+    RaycastHit2D hitReflective;
 
     public GameObject prefabReflection;
     public GameObject playerReflection;
@@ -25,6 +26,7 @@ public class scrSwitchGravity : MonoBehaviour
     {
         player = GetComponent<scrPlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
+        m_entity = GetComponent<scrEntity>();
         if (GameObject.Find("Player Reflection") == null)
         {
             playerReflection = Instantiate(prefabReflection, transform.position, Quaternion.identity);
@@ -37,7 +39,7 @@ public class scrSwitchGravity : MonoBehaviour
     void Update()
     {
 
-        if (player.GetGrounded() == true)
+        if (m_entity.GetGrounded() == true)
         {
             canFlip = true;
         }
@@ -75,19 +77,17 @@ public class scrSwitchGravity : MonoBehaviour
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                //transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y - transform.localScale.y) + reflectiveScale) - distanceBetweenReflection, transform.position.z);
                 transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
                 transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
-                //transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
             Rotation();
         }
-        else if (player.GetGrounded() == false)
+        else if (m_entity.GetGrounded() == false)
         {
             Debug.Log("Nope goodbye");
             checkFlip *= -1;
@@ -107,16 +107,14 @@ public class scrSwitchGravity : MonoBehaviour
 
             if (transform.position.y > reflectNormal.position.y)
             {
-                //playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
                 playerReflection.transform.position = new Vector3(transform.position.x, (distanceBetweenReflection-reflectNormal.position.y)*-1, transform.position.z);
             }
             else if (transform.position.y < reflectNormal.position.y)
             {
                 playerReflection.transform.position = new Vector3(transform.position.x, (distanceBetweenReflection - reflectNormal.position.y) * -1, transform.position.z);
-                //playerReflection.transform.position = new Vector3(transform.position.x, ((reflectNormal.position.y + playerReflection.transform.localScale.y) - reflectiveScale) - distanceBetweenReflection, transform.position.z);
             }           
         }
-        else if (player.GetGrounded() == false)
+        else if (m_entity.GetGrounded() == false)
         {
             playerReflection.SetActive(false);
         }
