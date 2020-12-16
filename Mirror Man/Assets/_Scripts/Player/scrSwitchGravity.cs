@@ -16,7 +16,7 @@ public class scrSwitchGravity : MonoBehaviour
     public float initialFlipDirection;
     private float inititalJumpForce;
     public float checkFlip;
-    RaycastHit2D hitReflective;
+    public RaycastHit2D hitReflective;
 
     public GameObject prefabReflection;
     public GameObject playerReflection;
