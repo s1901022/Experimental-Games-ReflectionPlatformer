@@ -72,7 +72,9 @@ public class scrEntity : MonoBehaviour
                 }
         }
 
-        if (GameObject.FindWithTag("Player").GetComponent<scrEntity>().m_dead == true)
+        if (GameObject.FindWithTag("Player").GetComponent<scrEntity>().m_dead == true 
+            || GameObject.FindWithTag("PlayerRightHalf").GetComponent<scrEntity>().m_dead == true 
+            || GameObject.FindWithTag("PlayerLeftHalf").GetComponent<scrEntity>().m_dead == true)
         {
             Reset();            
         }

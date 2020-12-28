@@ -22,10 +22,10 @@ public class scrRefraction : MonoBehaviour {
         splitPositionTwo = splitEmpty[1].gameObject.transform.position;
     }
 
-
-    private void OnTriggerEnter(Collider other) {
-        SplitPlayer();
-
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag ==  "Player") {
+            SplitPlayer();
+        }
     }
 
     void SplitPlayer() {
