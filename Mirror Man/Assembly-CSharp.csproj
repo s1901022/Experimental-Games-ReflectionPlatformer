@@ -68,7 +68,8 @@
     <Compile Include="Assets\_Scripts\Player\scrChallenges.cs" />
     <Compile Include="Assets\_Scripts\Player\scrPlayerMovement.cs" />
     <Compile Include="Assets\_Scripts\Player\scrSwitchGravity.cs" />
-    <Compile Include="Assets\_Scripts\RefractionMechanic\scrRefraction.cs" />
+    <Compile Include="Assets\_Scripts\RefractionMechanic\scrRefractionJoin.cs" />
+    <Compile Include="Assets\_Scripts\RefractionMechanic\scrRefractionSplit.cs" />
     <Compile Include="Assets\_Scripts\scrButton.cs" />
     <Compile Include="Assets\_Scripts\scrCamera.cs" />
     <Compile Include="Assets\_Scripts\scrChangeScene.cs" />

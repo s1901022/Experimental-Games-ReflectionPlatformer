@@ -78,6 +78,7 @@ public class scrPlayerMovement : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && m_entity.GetGrounded())
             {
                 rb.velocity = Vector2.up * jumpForce;
+                Debug.Log("JUMPING");
             }
         }       
     }
