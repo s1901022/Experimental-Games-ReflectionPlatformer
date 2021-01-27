@@ -16,7 +16,7 @@ public class scrSwitchGravity : MonoBehaviour
     public float initialFlipDirection;
     private float inititalJumpForce;
     public float checkFlip;
-    RaycastHit2D hitReflective;
+    private RaycastHit2D hitReflective;
 
     public GameObject prefabReflection;
     public GameObject playerReflection;
@@ -165,4 +165,7 @@ public class scrSwitchGravity : MonoBehaviour
             Rotation();
         }
     }
+
+    //Getters
+    public RaycastHit2D GetReflectionPoint() { return hitReflective; }
 }

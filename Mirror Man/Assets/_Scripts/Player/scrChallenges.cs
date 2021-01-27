@@ -19,7 +19,7 @@ public class scrChallenges : MonoBehaviour
             iJumps++;
         }
         // This checks if the floor below the player is reflective and they have pressed the flip button
-        if (Input.GetKeyUp(KeyCode.Space) && GetComponent<scrSwitchGravity>().hitReflective.collider.tag == "Reflective")
+        if (Input.GetKeyUp(KeyCode.Space) && GetComponent<scrSwitchGravity>().GetReflectionPoint().collider.tag == "Reflective")
         {
             iFlips++;
         }
