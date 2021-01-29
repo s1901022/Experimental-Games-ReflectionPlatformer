@@ -20,6 +20,8 @@ public class scrEntity : MonoBehaviour
 
     private bool grounded = false;
 
+    public bool isSplit = false;
+
     public enum physicsObjectType
     {
         RigidBody,
@@ -33,7 +35,13 @@ public class scrEntity : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         initialPosition = transform.position;
-        groundCheck = Instantiate(groundC, new Vector3(transform.position.x, transform.position.y - ((transform.localScale.y / 2) + C_Offset), transform.position.z), Quaternion.identity);
+        // This has been added so that it checks if it is grounding the refraction left half player OR a normal / right half player
+        if (gameObject.tag == "PlayerLeftHalf") {
+            groundCheck = Instantiate(groundC, new Vector3(transform.position.x, -transform.position.y - ((transform.localScale.y / 2) + C_Offset), transform.position.z), Quaternion.identity);
+
+        } else {
+            groundCheck = Instantiate(groundC, new Vector3(transform.position.x, transform.position.y - ((transform.localScale.y / 2) + C_Offset), transform.position.z), Quaternion.identity);
+        }
         groundCheck.transform.parent = gameObject.transform;
     }
 
@@ -71,10 +79,15 @@ public class scrEntity : MonoBehaviour
                     break;
                 }
         }
-
-        if (GameObject.FindWithTag("Player").GetComponent<scrEntity>().m_dead == true)
-        {
-            Reset();            
+        if (isSplit == false) {
+            if (GameObject.FindWithTag("Player").GetComponent<scrEntity>().m_dead == true) {
+                Reset();
+            }
+        } else {
+            if (GameObject.FindWithTag("PlayerRightHalf").GetComponent<scrEntity>().m_dead == true
+            || GameObject.FindWithTag("PlayerLeftHalf").GetComponent<scrEntity>().m_dead == true) {
+                Reset();
+            }
         }
     }
 
