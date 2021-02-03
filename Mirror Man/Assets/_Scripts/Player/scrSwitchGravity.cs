@@ -2,15 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class scrSwitchGravity : MonoBehaviour
 {
-    [SerializeField]
-    Tilemap normalTileMap;
-    [SerializeField]
-    Tilemap invertedTileMap;
-
     private scrEntity m_entity;
     private Rigidbody2D rb;
     private scrPlayerMovement player;
@@ -22,7 +16,7 @@ public class scrSwitchGravity : MonoBehaviour
     public float initialFlipDirection;
     private float inititalJumpForce;
     public float checkFlip;
-    private RaycastHit2D hitReflective;
+    public RaycastHit2D hitReflective;
 
     public GameObject prefabReflection;
     public GameObject playerReflection;
@@ -51,8 +45,7 @@ public class scrSwitchGravity : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && canFlip)
         {
-            MirrorPlayer();
-            UpdateTileLayers();
+            MirrorPlayer();  
         }
         UpdateReflection();
     }
@@ -172,23 +165,4 @@ public class scrSwitchGravity : MonoBehaviour
             Rotation();
         }
     }
-
-    void UpdateTileLayers()
-    {
-        if (normalTileMap.GetComponent<Tilemap>().color.a == 1f)
-        {
-            normalTileMap.GetComponent<Tilemap>().color = new Color(1f, 1f, 1f, 0f);
-            invertedTileMap.GetComponent<Tilemap>().color = new Color(1f, 1f, 1f, 1f);
-            return;
-        }
-        else if (normalTileMap.GetComponent<Tilemap>().color.a == 0f)
-        {
-            normalTileMap.GetComponent<Tilemap>().color = new Color(1f, 1f, 1f, 1f);
-            invertedTileMap.GetComponent<Tilemap>().color = new Color(1f, 1f, 1f, 0f);
-            return;
-        }
-    }
-
-    //Getters
-    public RaycastHit2D GetReflectionPoint() { return hitReflective; }
 }

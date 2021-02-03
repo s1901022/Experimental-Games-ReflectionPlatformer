@@ -32,11 +32,11 @@ public class scrCamera : MonoBehaviour
         var d = Input.GetAxis("Mouse ScrollWheel");
 
         //Define Camera Movement Limits
-        if (Input.GetKey(KeyCode.D) && transform.position.x + width / 2 < barrierLeft.transform.position.x)
+        if (Input.GetKey(KeyCode.D) && transform.position.x + width / 2 <= barrierLeft.transform.position.x)
         {
             transform.Translate(Vector2.right * (speed * Time.deltaTime));
         }
-        if (Input.GetKey(KeyCode.A) && transform.position.x - width/2 > barrierRight.transform.position.x)
+        if (Input.GetKey(KeyCode.A) && transform.position.x - width /2 >= barrierRight.transform.position.x)
         {
             transform.Translate(Vector2.left * (speed * Time.deltaTime));
         }
@@ -48,20 +48,21 @@ public class scrCamera : MonoBehaviour
         {
             transform.Translate(Vector2.up * (speed * Time.deltaTime));
         }
-        if (transform.position.x + width / 2 < barrierLeft.transform.position.x &&
-            transform.position.x - width / 2 > barrierRight.transform.position.x &&
-            transform.position.y - height / 2 > barrierBottom.transform.position.y &&
-            transform.position.y + height / 2 < barrierTop.transform.position.y)
+        // Camera Zoom Out
+        if (transform.position.x + width / 2 >= barrierLeft.transform.position.x &&
+            transform.position.x - width / 2 <= barrierRight.transform.position.x &&
+            transform.position.y - height / 2 >= barrierBottom.transform.position.y &&
+            transform.position.y + height / 2 <= barrierTop.transform.position.y)
         {
-            //Zoom in and out
-            if (d < 0f)
-            {
+            if (d < 0f) {
+                transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
                 cam.orthographicSize += 0.5f;
             }
         }
-        if (d > 0f && cam.orthographicSize >= 5.0f)
-        {
+        // Camera Zoom In
+        if (d > 0f && cam.orthographicSize >= 5.0f) {
             cam.orthographicSize -= 0.5f;
         }
+
     }
 }
