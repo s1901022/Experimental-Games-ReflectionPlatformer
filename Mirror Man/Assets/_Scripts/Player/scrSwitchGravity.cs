@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class scrSwitchGravity : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class scrSwitchGravity : MonoBehaviour
 
     public GameObject prefabReflection;
     public GameObject playerReflection;
+
+    public GameObject normalMap;
+    public GameObject invertedMap;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +89,8 @@ public class scrSwitchGravity : MonoBehaviour
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
+            normalMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha()*-1);
+            invertedMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
             Rotation();
         }
         else if (m_entity.GetGrounded() == false)
@@ -165,4 +171,6 @@ public class scrSwitchGravity : MonoBehaviour
             Rotation();
         }
     }
+
+    public RaycastHit2D GetReflectionPoint()    { return hitReflective; }
 }
