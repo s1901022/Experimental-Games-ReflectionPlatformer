@@ -58,11 +58,11 @@ public class scrSwitchGravity : MonoBehaviour
     {
         if (checkFlip == 1f)
         {
-            hitReflective = Physics2D.Raycast(transform.position - new Vector3(0f, transform.localScale.y, 0f), Vector2.down);
+            hitReflective = Physics2D.Raycast(transform.position - new Vector3(0f, transform.localScale.y, 0f), Vector2.up);
         }
         else if (checkFlip == -1f)
         {
-            hitReflective = Physics2D.Raycast(transform.position + new Vector3(0f, transform.localScale.y + 1, 0f), Vector2.down);
+            hitReflective = Physics2D.Raycast(transform.position + new Vector3(0f, transform.localScale.y, 0f), Vector2.down);
         }
         reflectNormal = hitReflective.transform;
     }

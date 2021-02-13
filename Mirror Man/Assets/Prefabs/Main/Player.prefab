@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841151958774584585}
-  m_LocalRotation: {x: 0, y: 0.70710707, z: 0, w: 0.7071066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.18, y: 2.19, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
@@ -150,6 +150,7 @@ MonoBehaviour:
     m_Bits: 256
   checkRadius: -0.5
   C_Offset: 0
+  isSplit: 0
   physicsType: 0
 --- !u!114 &841151958774584584
 MonoBehaviour:
@@ -194,6 +195,8 @@ MonoBehaviour:
   prefabReflection: {fileID: 2670347770504333310, guid: f0aa4a11e6234104f989c979de893b65,
     type: 3}
   playerReflection: {fileID: 0}
+  normalMap: {fileID: 0}
+  invertedMap: {fileID: 0}
 --- !u!95 &-7390260693899880027
 Animator:
   serializedVersion: 3
