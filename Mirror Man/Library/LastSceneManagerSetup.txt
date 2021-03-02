@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/_Scenes/Tile test.unity
+- path: Assets/_Scenes/DebugLevelSelect.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
