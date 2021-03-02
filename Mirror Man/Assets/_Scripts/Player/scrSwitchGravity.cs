@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class scrSwitchGravity : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class scrSwitchGravity : MonoBehaviour
 
     public GameObject prefabReflection;
     public GameObject playerReflection;
+
+    public GameObject normalMap;
+    public GameObject invertedMap;
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +58,11 @@ public class scrSwitchGravity : MonoBehaviour
     {
         if (checkFlip == 1f)
         {
-            hitReflective = Physics2D.Raycast(transform.position - new Vector3(0f, transform.localScale.y, 0f), Vector2.down);
+            hitReflective = Physics2D.Raycast(transform.position - new Vector3(0f, transform.localScale.y, 0f), Vector2.up);
         }
         else if (checkFlip == -1f)
         {
-            hitReflective = Physics2D.Raycast(transform.position + new Vector3(0f, transform.localScale.y + 1, 0f), Vector2.down);
+            hitReflective = Physics2D.Raycast(transform.position + new Vector3(0f, transform.localScale.y, 0f), Vector2.down);
         }
         reflectNormal = hitReflective.transform;
     }
@@ -85,6 +89,8 @@ public class scrSwitchGravity : MonoBehaviour
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
+            normalMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha()*-1);
+            invertedMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
             Rotation();
         }
         else if (m_entity.GetGrounded() == false)
@@ -165,4 +171,6 @@ public class scrSwitchGravity : MonoBehaviour
             Rotation();
         }
     }
+
+    public RaycastHit2D GetReflectionPoint()    { return hitReflective; }
 }

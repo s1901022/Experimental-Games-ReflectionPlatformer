@@ -12,6 +12,8 @@ TagManager:
   - Button
   - Entity
   - Ink
+  - PlayerLeftHalf
+  - PlayerRightHalf
   layers:
   - Default
   - TransparentFX
