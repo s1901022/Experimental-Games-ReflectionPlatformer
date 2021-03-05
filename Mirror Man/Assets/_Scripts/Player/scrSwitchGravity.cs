@@ -25,6 +25,9 @@ public class scrSwitchGravity : MonoBehaviour
     public GameObject normalMap;
     public GameObject invertedMap;
 
+    // Even = Normal, Odd = Flipped
+    public int isFlipped = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,14 +45,15 @@ public class scrSwitchGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+    
         if (m_entity.GetGrounded() == true)
         {
             canFlip = true;
         }
         if (Input.GetKeyDown(KeyCode.Space) && canFlip)
         {
-            MirrorPlayer();  
+            MirrorPlayer();
+            isFlipped++;
         }
         UpdateReflection();
     }
@@ -67,7 +71,7 @@ public class scrSwitchGravity : MonoBehaviour
         reflectNormal = hitReflective.transform;
     }
 
-    void MirrorPlayer()
+    public void MirrorPlayer()
     {
         rb.velocity = new Vector2(0.0f, 0.0f);
         canFlip = false;
