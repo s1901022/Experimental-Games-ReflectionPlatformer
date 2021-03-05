@@ -71,7 +71,7 @@ public class scrSwitchGravity : MonoBehaviour
         reflectNormal = hitReflective.transform;
     }
 
-    public void MirrorPlayer()
+    void MirrorPlayer()
     {
         rb.velocity = new Vector2(0.0f, 0.0f);
         canFlip = false;
@@ -104,6 +104,15 @@ public class scrSwitchGravity : MonoBehaviour
             rb.gravityScale *= -1;
             Rotation();
         }
+    }
+
+    public void ResetForNextTry() {
+        isFlipped = 0;
+        normalMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
+        invertedMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
+        checkFlip *= -1;
+        rb.gravityScale *= -1;
+        Rotation();
     }
 
     void UpdateReflection()

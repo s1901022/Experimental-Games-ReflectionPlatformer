@@ -198,6 +198,7 @@ MonoBehaviour:
   playerReflection: {fileID: 0}
   normalMap: {fileID: 0}
   invertedMap: {fileID: 0}
+  isFlipped: 0
 --- !u!95 &-7390260693899880027
 Animator:
   serializedVersion: 3
