@@ -91,10 +91,9 @@ public class scrPlayerMovement : MonoBehaviour
             if (m_mirror.isFlipped % 2 != 0) {
 
                 m_mirror.ResetForNextTry();
-                //m_mirror.ResetRotation();
-                //m_mirror.Reset();
+                m_mirror.ResetRotation();
+                m_mirror.Reset();
             }
-
         }
     }
 
