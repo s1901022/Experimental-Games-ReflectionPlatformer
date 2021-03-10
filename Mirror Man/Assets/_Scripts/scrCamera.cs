@@ -4,65 +4,36 @@ using UnityEngine;
 
 public class scrCamera : MonoBehaviour
 {
-    [SerializeField]
-    private float cameraSize;
-    [SerializeField]
-    private float speed;
-    private Camera cam;
+    private GameObject player;
 
-    //Limiting objects defined
     [SerializeField]
-    private GameObject barrierRight;
-    [SerializeField]
-    private GameObject barrierLeft;
-    [SerializeField]
-    private GameObject barrierTop;
-    [SerializeField]
-    private GameObject barrierBottom;
+    GameObject[] borders;
 
+    // Start is called before the first frame update
     void Start()
     {
-        cam = GetComponent<Camera>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    // Update is called once per frame
     void Update()
     {
-        float height = 2f * cam.orthographicSize;
-        float width = height * cam.aspect;
-        var d = Input.GetAxis("Mouse ScrollWheel");
-
-        //Define Camera Movement Limits
-        if (Input.GetKey(KeyCode.D) && transform.position.x + width / 2 <= barrierLeft.transform.position.x)
-        {
-            transform.Translate(Vector2.right * (speed * Time.deltaTime));
-        }
-        if (Input.GetKey(KeyCode.A) && transform.position.x - width /2 >= barrierRight.transform.position.x)
-        {
-            transform.Translate(Vector2.left * (speed * Time.deltaTime));
-        }
-        if (Input.GetKey(KeyCode.S) && transform.position.y - height / 2 > barrierBottom.transform.position.y)
-        {
-            transform.Translate(Vector2.down * (speed * Time.deltaTime));
-        }
-        if (Input.GetKey(KeyCode.W) && transform.position.y + height / 2 < barrierTop.transform.position.y)
-        {
-            transform.Translate(Vector2.up * (speed * Time.deltaTime));
-        }
-        // Camera Zoom Out
-        if (transform.position.x + width / 2 >= barrierLeft.transform.position.x &&
-            transform.position.x - width / 2 <= barrierRight.transform.position.x &&
-            transform.position.y - height / 2 >= barrierBottom.transform.position.y &&
-            transform.position.y + height / 2 <= barrierTop.transform.position.y)
-        {
-            if (d < 0f) {
-                transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
-                cam.orthographicSize += 0.5f;
-            }
-        }
-        // Camera Zoom In
-        if (d > 0f && cam.orthographicSize >= 5.0f) {
-            cam.orthographicSize -= 0.5f;
+        Vector3 playerPosition = player.transform.position;
+        Vector3 cameraPosition = this.gameObject.transform.position;
+        // X-AXIS
+        if (playerPosition.x > (cameraPosition.x - 10) || playerPosition.x < (cameraPosition.x + 10)) {
+            // Set the cameras position to move towards the players x position
+            gameObject.transform.position = Vector3.MoveTowards(transform.position,
+                                                                new Vector3(playerPosition.x, transform.position.y, transform.position.z),
+                                                                Time.deltaTime * 0.5f);
         }
 
+        // Y-AXIS
+        if (playerPosition.y > (cameraPosition.y + 5) || playerPosition.y < (cameraPosition.y - 5)) {
+            // Set the cameras position to move towards the players x position
+            gameObject.transform.position = Vector3.MoveTowards(transform.position,
+                                                                new Vector3(transform.position.x, playerPosition.y, transform.position.z),
+                                                                Time.deltaTime * 0.5f);
+        }
     }
 }
