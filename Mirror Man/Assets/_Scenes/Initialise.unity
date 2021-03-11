@@ -151,8 +151,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameStages:
   - stageNumber: 1
+    stageName: Introduction
+    stageBuildName: _Level01
+    collectableGot: 0
+    bestTime: 0
+    numberOfFlips: 0
+    targetnumberOfFlips: 0
+  - stageNumber: 2
+    stageName: Flips
+    stageBuildName: _Level02
+    collectableGot: 0
+    bestTime: 0
+    numberOfFlips: 0
+    targetnumberOfFlips: 0
+  - stageNumber: 3
     stageName: Test
-    stageBuildName: Level1
+    stageBuildName: _Level03
+    collectableGot: 0
+    bestTime: 0
+    numberOfFlips: 0
+    targetnumberOfFlips: 0
+  - stageNumber: 4
+    stageName: Test
+    stageBuildName: _Level04
+    collectableGot: 0
+    bestTime: 0
+    numberOfFlips: 0
+    targetnumberOfFlips: 0
+  - stageNumber: 5
+    stageName: Test
+    stageBuildName: _Level05
+    collectableGot: 0
+    bestTime: 0
+    numberOfFlips: 0
+    targetnumberOfFlips: 0
+  - stageNumber: 6
+    stageName: Test
+    stageBuildName: _Level06
+    collectableGot: 0
+    bestTime: 0
+    numberOfFlips: 0
+    targetnumberOfFlips: 0
+  - stageNumber: 7
+    stageName: Test
+    stageBuildName: _Level07
     collectableGot: 0
     bestTime: 0
     numberOfFlips: 0

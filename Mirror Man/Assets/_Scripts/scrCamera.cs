@@ -25,7 +25,7 @@ public class scrCamera : MonoBehaviour
             // Set the cameras position to move towards the players x position
             gameObject.transform.position = Vector3.MoveTowards(transform.position,
                                                                 new Vector3(playerPosition.x, transform.position.y, transform.position.z),
-                                                                Time.deltaTime * 0.5f);
+                                                                Time.deltaTime * 2.5f);
         }
 
         // Y-AXIS
@@ -33,7 +33,7 @@ public class scrCamera : MonoBehaviour
             // Set the cameras position to move towards the players x position
             gameObject.transform.position = Vector3.MoveTowards(transform.position,
                                                                 new Vector3(transform.position.x, playerPosition.y, transform.position.z),
-                                                                Time.deltaTime * 0.5f);
+                                                                Time.deltaTime * 2.5f);
         }
     }
 }

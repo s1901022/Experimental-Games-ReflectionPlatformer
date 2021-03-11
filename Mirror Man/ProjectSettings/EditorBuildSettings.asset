@@ -9,27 +9,30 @@ EditorBuildSettings:
     path: Assets/_Scenes/Initialise.unity
     guid: 4c24ada9c2c041b46ba543053ec3aa1a
   - enabled: 1
+    path: Assets/_Scenes/TitleScreen.unity
+    guid: 5d8adaa8d5767254ba198ff9e99277e7
+  - enabled: 1
     path: Assets/_Scenes/DebugLevelSelect.unity
     guid: 04fd530f490719b438662baa9ac9e4f8
   - enabled: 1
-    path: Assets/_Scenes/Level1.unity
-    guid: fcb78d51bd072824aa9bac94b02f2b40
+    path: Assets/_Scenes/_TilemapLevels/_Level01.unity
+    guid: 6118b9817dbc6524ea14a79dd338df45
   - enabled: 1
-    path: Assets/_Scenes/Level2.unity
-    guid: 42edcfce9468d7141b4a1182fcba490f
+    path: Assets/_Scenes/_TilemapLevels/_Level02.unity
+    guid: 414f095a6bfabd8428048513726ff817
   - enabled: 1
-    path: Assets/_Scenes/Level3.unity
-    guid: 3570f2285f25ab34dbd548d32764b658
+    path: Assets/_Scenes/_TilemapLevels/_Level03.unity
+    guid: 6835114b7c5488b4ba33e489c406f080
   - enabled: 1
-    path: Assets/_Scenes/Level 1.unity
-    guid: 7cdfb7928b354a34a9d111cfc21bd35f
+    path: Assets/_Scenes/_TilemapLevels/_Level04.unity
+    guid: 9be16600208566044bdff8451ecb4804
   - enabled: 1
-    path: Assets/_Scenes/Level 2.unity
-    guid: 01c226ac7574a714aa6e32d3856dd239
+    path: Assets/_Scenes/_TilemapLevels/_Level05.unity
+    guid: f1c7e80cf373d8c4e9d042e384ea41e7
   - enabled: 1
-    path: Assets/_Scenes/Level 3.unity
-    guid: 3667575c66afdb3419c8b3113658d81d
+    path: Assets/_Scenes/_TilemapLevels/_Level06.unity
+    guid: 81e6f08f785aaba4eb3dade7fde3846e
   - enabled: 1
-    path: Assets/_Scenes/Level 4.unity
-    guid: 65325cf833323584aa80732474dc19b7
+    path: Assets/_Scenes/_TilemapLevels/_Level07.unity
+    guid: 1683f5033677e8243a456991a0c84d26
   m_configObjects: {}

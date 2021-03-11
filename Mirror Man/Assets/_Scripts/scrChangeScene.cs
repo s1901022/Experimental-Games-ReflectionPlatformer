@@ -11,7 +11,7 @@ public class scrChangeScene : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(sceneToLoad);
+            Stage_Loader.LoadSceneSafe(sceneToLoad);
         }
     }
 }
