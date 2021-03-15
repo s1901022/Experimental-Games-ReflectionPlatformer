@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\Flipping Block\FlippingBox_New.cs" />
     <Compile Include="Assets\_Scripts\InitialiseGame.cs" />
     <Compile Include="Assets\_Scripts\Menus\scrTitleScreen.cs" />
     <Compile Include="Assets\_Scripts\Player\scrChallenges.cs" />
