@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\InitialiseGame.cs" />
     <Compile Include="Assets\_Scripts\Menus\scrTitleScreen.cs" />
+    <Compile Include="Assets\_Scripts\Player\scrChallenges.cs" />
     <Compile Include="Assets\_Scripts\Player\scrPlayerMovement.cs" />
     <Compile Include="Assets\_Scripts\Player\scrSwitchGravity.cs" />
     <Compile Include="Assets\_Scripts\RefractionMechanic\scrRefractionJoin.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\_Scripts\Stage Select\StageDisplay.cs" />
     <Compile Include="Assets\_Scripts\Stage_Data.cs" />
     <Compile Include="Assets\_Scripts\Stage_Manager.cs" />
+    <Compile Include="Assets\_Scripts\StageState.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Work/Documents/GitHub/Experimental-Games-ReflectionPlatformer/Mirror Man/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
