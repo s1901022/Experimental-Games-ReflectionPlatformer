@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 0
     width: 202
     height: 947
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 222}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -71,7 +71,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &4
 MonoBehaviour:
@@ -117,10 +117,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 709, y: 494}
-  m_MaxSize: {x: 18004, y: 14044}
+  m_MinSize: {x: 713, y: 494}
+  m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 123
+  controlID: 114
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 494}
   m_MaxSize: {x: 10004, y: 14044}
   vertical: 1
-  controlID: 54
+  controlID: 67
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -429,11 +429,11 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Scenes/_TilemapLevels
+    - Assets/_Scripts
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/_Scenes/_TilemapLevels
+  - Assets/_Scripts
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Users\Work\Documents\GitHub\Experimental-Games-ReflectionPlatformer\Mirror
     Man
@@ -441,9 +441,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 59}
-    m_SelectedIDs: e2320000
-    m_LastClickedID: 13026
-    m_ExpandedIDs: 00000000b62e0000d22f00000230000006310000f4320000d8340000da340000dc34000000ca9a3b
+    m_SelectedIDs: 6c300000
+    m_LastClickedID: 12396
+    m_ExpandedIDs: 000000003a2c0000502d0000802d0000842e00006c30000014320000163200001832000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -471,7 +471,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b62e00000230000006310000f4320000d8340000da340000dc340000
+    m_ExpandedIDs: 000000003a2c0000802d0000842e00006c300000143200001632000018320000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -734,23 +734,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 6c300000
       m_LastClickedID: 0
-      m_ExpandedIDs: 5a67ffff8867ffff8a67ffff7e68ffff4269ffff2e6affffde6affff966bfffffe6bffff026cffff306cffff346cffffb26cffffe06cffffe26cffffd66dffff9a6effff866fffff3670ffffee70ffff5671ffff5a71ffff8871ffff8c71ffffe273ffff2e75ffff5276ffff6077ffffb678ffff8879ffff9e7affffc47bffff9c7cffff187effff427efffff880fffffc80ffffc081ffffac82ffff5c83ffff1484ffff7c84ffff8884ffffc484ffffca84ffffc086ffffee86ffffa489ffffa889ffff6c8affff588bffff088cffffc08cffff288dffff2c8dffff5a8dffff5e8dffff868effff368fffffee8fffff5690ffff6290ffff9e90ffffa490ffff0e92ffff2293ffff6e94ffffbc95fffff296ffff869bffffec9cffff729dffff289effff569effff0ca1ffff00a2ffffc4a2ffffb0a3ffff60a4ffff24a5ffff94a5ffff98a5ffffcea5ffffd4a5ffff4aaaffff0eabffff00acffffe8b0ffffceb1ffff36b4ffffb6b5ffffeeb5ffff40b8ffff9cb8ffffc0bcffff38beffff2ac0ffffb0c1ffff26c3ffff04c5ffff46cbffffb2cbffffe0cbffff8eceffff7acfffff36d0ffff1ad1ffffced1ffff8ad2fffff6d2ffff06d3ffff46d3ffff50d3ffff42d5ffff3ad7ffff4cd8ffff2ed9ffff36daffff14dbfffffedbffff9edcffffe6dcffff3ae4ffff5ae4ffff7ae4ffff4ce5ffff58e7ffffdee8ffffb2eaffffd8ecffff2cedffff16f2ffff52f6ffff24f7ffff3cf9ffff76f9ffff0a35000028350000ee3600001a3700003e370000aa370000a8380000643900006e390000aa390000da390000e44700008e4800008c490000484a0000524a00008e4a0000be4a000038860000f4860000fe860000c4950000809600008a960000a2a300005ea4000068a4000088d10000
+      m_ExpandedIDs: 94faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Level Exit Gate
-        m_OriginalName: Level Exit Gate
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -25526
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 2}
       m_SearchString: 
