@@ -25,9 +25,6 @@ public class scrSwitchGravity : MonoBehaviour
     public GameObject normalMap;
     public GameObject invertedMap;
 
-    // Even = Normal, Odd = Flipped
-    public int isFlipped = 0;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -45,17 +42,23 @@ public class scrSwitchGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
         if (m_entity.GetGrounded() == true)
         {
             canFlip = true;
         }
         if (Input.GetKeyDown(KeyCode.Space) && canFlip)
         {
-            MirrorPlayer();
-            isFlipped++;
+            MirrorPlayer();  
         }
         UpdateReflection();
+    }
+
+    private void SetStageState()
+    {
+        if (checkFlip == 1f)  { m_entity.GetGameControlScript().SetMirrorState(false);  }  //Reflection
+        if (checkFlip == -1f) { m_entity.GetGameControlScript().SetMirrorState(true); }  //Normal
+
     }
 
     void DetectTerrain()
@@ -93,8 +96,8 @@ public class scrSwitchGravity : MonoBehaviour
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
-            normalMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha()*-1);
-            invertedMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
+
+            SetStageState();
             Rotation();
         }
         else if (m_entity.GetGrounded() == false)
@@ -106,15 +109,13 @@ public class scrSwitchGravity : MonoBehaviour
         }
     }
 
-    public void ResetForNextTry() {
-        isFlipped = 0;
-        normalMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
-        invertedMap.GetComponent<scrTileAlphaFlip>().AlphaFlip(normalMap.GetComponent<scrTileAlphaFlip>().GetInitialAlpha() * -1);
+    public void ResetForNextTry() 
+    {
+        m_entity.GetGameControlScript().ResetTileset();
         checkFlip *= -1;
         rb.gravityScale *= -1;
         Rotation();
     }
-
     void UpdateReflection()
     {
         DetectTerrain();
