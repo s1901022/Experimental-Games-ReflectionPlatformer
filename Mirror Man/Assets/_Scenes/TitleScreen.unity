@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5348076e98370324faac5d0d0c40b659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: DebugLevelSelect
+  sceneToLoad: Level1
 --- !u!1001 &829425498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -793,12 +793,12 @@ PrefabInstance:
     - target: {fileID: 841151958774584586, guid: 27fd0b1a5ceb27f4fb1c41eae304b913,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.36
+      value: -8.603145
       objectReference: {fileID: 0}
     - target: {fileID: 841151958774584586, guid: 27fd0b1a5ceb27f4fb1c41eae304b913,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.09
+      value: -1.2379093
       objectReference: {fileID: 0}
     - target: {fileID: 841151958774584586, guid: 27fd0b1a5ceb27f4fb1c41eae304b913,
         type: 3}

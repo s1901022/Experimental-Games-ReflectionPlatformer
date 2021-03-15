@@ -392,6 +392,97 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19af1a42973442a46bcbdc5a2e396b63, type: 3}
+--- !u!1001 &239403232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 830217611466288201, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_Name
+      value: Stage Control
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.298109
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.649751
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.284178
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288311, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830217611466288310, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: normalMap
+      value: 
+      objectReference: {fileID: 395253042}
+    - target: {fileID: 830217611466288310, guid: d9a6fbc1e5101db49acb2f4648140e75,
+        type: 3}
+      propertyPath: invertedMap
+      value: 
+      objectReference: {fileID: 395253041}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d9a6fbc1e5101db49acb2f4648140e75, type: 3}
+--- !u!114 &239403233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 830217611466288310, guid: d9a6fbc1e5101db49acb2f4648140e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 239403232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1061fe145303d814bb93bbee4207989e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &268201647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,6 +756,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.33
       objectReference: {fileID: 0}
+    - target: {fileID: 8887104988629896732, guid: 27fd0b1a5ceb27f4fb1c41eae304b913,
+        type: 3}
+      propertyPath: gameControl
+      value: 
+      objectReference: {fileID: 239403233}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fd0b1a5ceb27f4fb1c41eae304b913, type: 3}
 --- !u!1001 &395253040

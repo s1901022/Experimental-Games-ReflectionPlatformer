@@ -5,6 +5,8 @@ using UnityEngine;
 public class scrEntity : MonoBehaviour
 {
     [SerializeField]
+    private StageState gameControl;
+    [SerializeField]
     private GameObject groundC;
 
     Rigidbody2D rb;
@@ -34,6 +36,7 @@ public class scrEntity : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
         initialPosition = transform.position;
         // This has been added so that it checks if it is grounding the refraction left half player OR a normal / right half player
         if (gameObject.tag == "PlayerLeftHalf") {
@@ -122,4 +125,6 @@ public class scrEntity : MonoBehaviour
     public bool GetGrounded() { return grounded; }
     public bool GetDead() { return m_dead; }
     public void SetDead() { m_dead = !m_dead; }
+
+    public StageState GetGameControlScript() { return gameControl; }
 }

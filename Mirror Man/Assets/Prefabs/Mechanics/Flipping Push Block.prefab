@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6799874536094621076}
   - component: {fileID: 6799874536094621077}
-  - component: {fileID: 6799874536094621078}
   - component: {fileID: 6799874536094621074}
   - component: {fileID: 6799874536094621075}
-  - component: {fileID: -1197837627120549978}
+  - component: {fileID: 6396857265843371040}
+  - component: {fileID: -5375956459365808731}
   m_Layer: 8
   m_Name: Flipping Push Block
   m_TagString: Entity
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6799874536094621079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.19, y: -1.74, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,33 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6799874536094621078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6799874536094621079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8f617eb1dc320438908a3ada94f62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
-  groundCheck: {fileID: 0}
-  checkRadius: 0.5
-  ground:
-    serializedVersion: 2
-    m_Bits: 256
-  mirror: {fileID: 0}
-  canFlip: 0
-  height: 0
-  reflectNormal: {fileID: 0}
-  initialFlipDirection: 0
-  checkFlip: 1
-  prefabReflection: {fileID: 2670347770504333310, guid: f0aa4a11e6234104f989c979de893b65,
-    type: 3}
-  myReflection: {fileID: 0}
 --- !u!61 &6799874536094621074
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -157,7 +130,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1197837627120549978
+--- !u!114 &6396857265843371040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,5 +147,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   checkRadius: 0.5
-  C_Offset: 0.5
-  physicsType: 1
+  C_Offset: 0
+  isSplit: 0
+  physicsType: 0
+--- !u!114 &-5375956459365808731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799874536094621079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1376601582f0085488edff0b6562f376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_grounded: 0
