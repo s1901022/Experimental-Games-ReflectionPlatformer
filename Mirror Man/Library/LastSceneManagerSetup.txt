@@ -1,13 +1,5 @@
 sceneSetups:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-- path: Assets/_Scenes/Initialise.unity
-=======
-- path: Assets/_Scenes/_TilemapLevels/_Level01.unity
->>>>>>> Stashed changes
-=======
-- path: Assets/_Scenes/_TilemapLevels/_Level01.unity
->>>>>>> Stashed changes
+- path: Assets/_Scenes/_TilemapLevels/_Level06.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

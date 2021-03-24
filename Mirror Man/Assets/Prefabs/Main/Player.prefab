@@ -131,7 +131,11 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
+<<<<<<< Updated upstream
   m_Size: {x: 0.65, y: 0.65}
+=======
+  m_Size: {x: 0.4, y: 0.65}
+>>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!114 &8887104988629896732
 MonoBehaviour:
@@ -145,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a58ee32e250904eb9dc699e955da76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameControl: {fileID: 0}
   groundC: {fileID: 6836171069745619055, guid: 3505f40f50b0219439b1610a7081bb87, type: 3}
   ground:
     serializedVersion: 2
