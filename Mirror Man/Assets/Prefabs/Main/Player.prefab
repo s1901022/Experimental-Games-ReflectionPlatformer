@@ -132,7 +132,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Size: {x: 0.65, y: 0.65}
+=======
+  m_Size: {x: 0.4, y: 0.65}
+>>>>>>> Stashed changes
 =======
   m_Size: {x: 0.4, y: 0.65}
 >>>>>>> Stashed changes
