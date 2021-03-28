@@ -88,6 +88,12 @@ public class scrPlayerMovement : MonoBehaviour
         //Handle Death and respawning
         if (col.gameObject.tag == "Death" && !m_entity.GetDead())
         {
+            if (m_mirror.isFlipped % 2 != 0) {
+                m_mirror.isFlipped = 0;
+                m_mirror.ResetForNextTry();
+                //m_mirror.ResetRotation();
+                //m_mirror.Reset();
+            }
             m_mirror.ResetRotation();
             m_mirror.Reset();
         }

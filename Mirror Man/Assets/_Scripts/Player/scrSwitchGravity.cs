@@ -25,6 +25,8 @@ public class scrSwitchGravity : MonoBehaviour
     public GameObject normalMap;
     public GameObject invertedMap;
 
+    public int isFlipped = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +98,8 @@ public class scrSwitchGravity : MonoBehaviour
             }
             checkFlip *= -1;
             rb.gravityScale *= -1;
+
+            isFlipped++;
 
             SetStageState();
             Rotation();

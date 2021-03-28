@@ -25,7 +25,6 @@ public class scrCamera : MonoBehaviour
         Vector3 playerPosition = player.transform.position;
         Vector3 cameraPosition = this.gameObject.transform.position;
 
-
         float halfScreenWidth = 9;
         float halfScreenHeight = Screen.height / 2;
 
@@ -47,7 +46,6 @@ public class scrCamera : MonoBehaviour
             gameObject.transform.position = Vector3.MoveTowards(transform.position,
                                                                 new Vector3(transform.position.x, playerPosition.y, transform.position.z),
                                                                 Time.deltaTime * 2.5f);
-
         }
     }
 }
