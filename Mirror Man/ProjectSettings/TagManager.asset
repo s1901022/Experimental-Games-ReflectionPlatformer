@@ -14,10 +14,6 @@ TagManager:
   - Ink
   - PlayerLeftHalf
   - PlayerRightHalf
-  - BarrierBottom
-  - BarrierTop
-  - BarrierLeft
-  - BarrierRight
   layers:
   - Default
   - TransparentFX
